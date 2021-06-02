@@ -1,0 +1,134 @@
+@mixin nav($deg) {
+    @if($deg==90) {
+        @keyframes nav {
+            from {
+                transform: perspective(1500px) rotateX(90deg);
+                visibility: hidden;
+                opacity: 0;
+            }
+            to {
+                transform: perspective(1500px) rotateX(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    @if($deg==120) {
+        @keyframes nav {
+            from {
+                transform: perspective(1500px) rotateX(120deg);
+                visibility: hidden;
+                opacity: 0;
+            }
+            to {
+                transform: perspective(1500px) rotateX(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    @if($deg==160) {
+        @keyframes nav {
+            from {
+                transform: perspective(1500px) rotateX(160deg);
+                visibility: hidden;
+                opacity: 0;
+            }
+            to {
+                transform: perspective(1500px) rotateX(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    @if($deg==180) {
+        @keyframes nav {
+            from {
+                transform: perspective(1500px) rotateX(180deg);
+                visibility: hidden;
+                opacity: 0;
+            }
+            to {
+                transform: perspective(1500px) rotateX(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// 3dbox
+section {
+    & .box3dOuterContainer {
+        width: 100%;
+        perspective: 1500px;
+        margin-top: 50px;
+        &>.box3dInnerContainer {
+            width: 225px;
+            transform: rotateX(-30deg);
+            transform-style: preserve-3d;
+            backface-visibility: visible;
+            transform-origin: center center;
+            &>.box {
+                width: 100%;
+                height: 50px;
+                font-size: 2.3rem;
+                text-transform: uppercase;
+            }
+            &>.box1 {
+                color: #704663;
+                background-color: rgb(225, 223, 222);
+                border: 2px solid rgba(189, 189, 189, 0.116);
+            }
+            &>.box2 {
+                color: rgb(225, 223, 222);
+                transform-origin: center top;
+                transform: rotateX(-90deg)
+            }
+        }
+    }
+    & .btn {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        &::before,
+        &::after {
+            content: "";
+            display: flex;
+            width: 80%;
+            height: 2px;
+            background-color: gray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            transform-origin: left center;
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+    & .rightBtn {
+        right: 0;
+        transform: translate(200%, -50%);
+        &::before,
+        &::after {
+            transform-origin: right center;
+        }
+    }
+    & .leftBtn {
+        left: 0;
+        transform: translate(-200%, -50%);
+    }
+    & .bgText {
+        text-transform: uppercase;
+        font-size: 2.1rem;
+        color: #f6ede0;
+        text-align: center;
+        word-spacing: 5px;
+        letter-spacing: 5px;
+    }
+}
